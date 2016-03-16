@@ -1,5 +1,5 @@
 #pragma once;
-#define count.H;
+#define count.h;
 
 #include <iostream>
 #include <string.h> // includes libraries to be used in source file
