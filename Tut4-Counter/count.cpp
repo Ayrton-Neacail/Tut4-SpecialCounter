@@ -1,10 +1,12 @@
 #include <count.h>
+#include <iostream>
+
 
 using namespace std;
 
 
 
-SpecialCounter::SpecialCounter(int start, int stop, int step, int current)
+SpecialCounter SpecialCounter::SpecialCounter(int start, int stop, int step, int current)
 
 
 {
@@ -18,49 +20,58 @@ SpecialCounter::SpecialCounter(int start, int stop, int step, int current)
 };
 
 
-SpecialCounter::~Counter(){
+SpecialCounter SpecialCounter::~Counter(){
 
-
+	//default destructor
 
 
 
 }
 
-int Counter::getCurrent()
+SpecialCounter  SpecialCounter::getCurrent()
 {
-	return current;
+	return current; //accessor method
 };
 
-Counter Counter::operator++(int)//postfix
+SpecialCounter SpecialCounter::operator++(int) //postfix
 {
-	Counter t(start, finish, current, step);
+	SpecialCounter(start, stop, step, current);
 	current = current + step;
-	if (current > finish)
+	if (current > stop)
+	{
 		current = start;
-	return t;
+
+	};
+		
+	return SpecialCounter();
 };
 
-Counter Counter::operator--(int)//postfix
+SpecialCounter SpecialCounter::operator--(int) //postfix
 {
-	Counter t(start, finish, current, step);
+	SpecialCounter(start, stop,step,current);
 	current = current - step;
 	if (current < start)
-		current = finish;
-	return t;
+		current = stop;
+	return SpecialCounter();
 };
 
-Counter Counter::operator++()//prefix
+SpecialCounter  SpecialCounter::operator++()//prefix
 {
+
 	current = current + step;
-	if (current > finish)
+	if (current > stop)
 		current = start;
-	return Counter(start, finish, current, step);
+	return SpecialCounter();
 };
 
-Counter Counter::operator--()//prefix
+SpecialCounter SpecialCounter::operator--()//prefix
 {
 	current = current - step;
-	if (current < start)
-		current = finish;
-	return Counter(start, finish, current, step);
+	if (current < start){
+
+		current = stop
+	};
+
+
+	return SpecialCounter();
 };
